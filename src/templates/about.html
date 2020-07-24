@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block contet %}
+<h1>About page</h1>
+
+<h3>{{ title|capfirst|slugify }}</h3>
+
+<p>This is a template</p>
+
+{{ my_html|striptags }}
+
+<p>
+    {{ my_number }}
+    
+    {{ my_list }}
+
+    <ul>
+        {% for my_sub_item in my_list %}
+            {% if my_sub_item == 3 %}
+                <li>{{ forloop.counter }} - {{ my_sub_item|add:22 }}</li>
+            {% elif my_sub_item == 5 %}
+                <li>docSpin</li>
+            {% else %}
+                <li>{{ forloop.counter }} - {{ my_sub_item }}</li>
+            {% endif %}
+
+        {% endfor %}
+    </ul>   
+</p>
+
+{% endblock %}
