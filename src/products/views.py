@@ -15,7 +15,7 @@ from .models import Product
 #             Product.objects.create(**my_form.cleaned_data)
 #         else:
 #             print(my_form.errors)
-    
+
 #     context = {
 #         'form': my_form
 #     }
@@ -31,10 +31,9 @@ from .models import Product
 #     context = {}
 #     return render(request, 'products/product_create.html', context)
 
+
 def product_create_view(request):
-    initial_data = {
-        'title': 'How much more fake data do I need'
-    }
+    initial_data = {"title": "How much more fake data do I need"}
 
     obj = Product.objects.get(id=7)
 
@@ -44,11 +43,9 @@ def product_create_view(request):
         form.save()
         form = ProductForm()
 
-    context = {
-        'form': form
-    }
-    return render(request, 'products/product_create.html', context)
-    
+    context = {"form": form}
+    return render(request, "products/product_create.html", context)
+
 
 def product_detail_view(request):
     obj = Product.objects.get(id=7)
@@ -57,10 +54,9 @@ def product_detail_view(request):
     #     'description': obj.description
     # }
 
-    context = {
-        'object': obj
-    }
-    return render(request, 'products/product_detail.html', context)
+    context = {"object": obj}
+    return render(request, "products/product_detail.html", context)
+
 
 def dynamic_lookup_view(request, id):
     # obj = Product.objects.get(id=id)
@@ -69,27 +65,22 @@ def dynamic_lookup_view(request, id):
     #     obj = Product.objects.get(id=id)
     # except Product.DoesNotExist:
     #     raise Http404
-    context = {
-        "object": obj
-        
-    }
-    return render(request, 'products/product_detail.html', context)
+    context = {"object": obj}
+    return render(request, "products/product_detail.html", context)
+
 
 def product_delete_view(request, id):
     obj = get_object_or_404(Product, id=id)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         obj.delete()
-        return redirect('../../')
+        return redirect("../../")
 
-    context = {
-        'object': obj
-    }
-    return render(request, 'products/product_delete.html', context)
+    context = {"object": obj}
+    return render(request, "products/product_delete.html", context)
+
 
 def product_list_view(request):
     queryset = Product.objects.all()
-    context = {
-        'object_list': queryset
-    }
-    return render(request, 'products/product_list.html', context)
+    context = {"object_list": queryset}
+    return render(request, "products/product_list.html", context)

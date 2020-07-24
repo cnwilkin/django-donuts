@@ -14,10 +14,10 @@ def contact_view(request, *args, **kwargs):
 
 def about_view(request, *args, **kwargs):
     my_context = {
-        'title': 'the Doctor will return shortly',
-        'my_number': 123456,
-        'my_list': [ 1, 2, 3, 4, 5, 6, 7 ],
-        "my_html": '<h1>h3lL0 W0rlD</h1>'
+        "title": "the Doctor will return shortly",
+        "my_number": 123456,
+        "my_list": [1, 2, 3, 4, 5, 6, 7],
+        "my_html": "<h1>h3lL0 W0rlD</h1>",
     }
 
     return render(request, "about.html", my_context)
