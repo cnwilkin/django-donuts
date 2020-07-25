@@ -5,7 +5,7 @@ Follows the series of videos from [freeCodeCamp](https://www.freecodecamp.org/) 
 ## Setup
 
 - Create virtual environment `virtualenv env`
-- Install django `pip install django`
+- Install django `pip install django black`
 
 ## Commands
 
@@ -13,3 +13,4 @@ Follows the series of videos from [freeCodeCamp](https://www.freecodecamp.org/) 
 - Create new app `python manage.py startapp <name>`
 - Create migrations `python manage.py makemigrations`
 - Run migrations `python manage.py migrate`
+- [Blacken code](https://github.com/psf/black) before commits `black src`
